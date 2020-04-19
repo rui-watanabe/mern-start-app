@@ -17,9 +17,9 @@ const CreateUser = props => {
 
     axios.post('http://localhost:5000/users/add', user)
       .then(res => console.log(res.data))
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
 
-    // window.location = "/";
+    window.location = "/";
   }
 
   return(
