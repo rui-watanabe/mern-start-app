@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
-const CreateUser = props => {
+const CreateUser = () => {
   const [username, setUsername] = useState('');
 
   const onChangeUsername = e => {
@@ -13,6 +14,11 @@ const CreateUser = props => {
       username
     }
     console.log(user);
+
+    axios.post('http://localhost:5000/users/add', user)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+
     window.location = "/";
   }
 
