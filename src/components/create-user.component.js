@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CreateUser = props => {
+const CreateUser = () => {
   const [username, setUsername] = useState('');
 
   const onChangeUsername = e => {

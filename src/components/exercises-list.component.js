@@ -1,5 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import AppContext from '../contexts/AppContext'
 import Exercise from './exercise.component';
 
 const ExercisesList = () => {
@@ -20,25 +21,25 @@ const ExercisesList = () => {
   // },[exercises]);
 
   return(
-    <div>
-      <h3>Logged Exercises</h3>
-      <table className="table">
-        <thead className="thead-light">
-          <tr>
-            <th>Username</th>
-            <th>Description</th>
-            <th>Duration</th>
-            <th>Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {exercises.map(currentExercise => {
-            return <Exercise exercise={currentExercise} key={currentExercise._id} />
-          })}
-        </tbody>
-      </table>
-    </div>
+    <AppContext.Provider value={exercises}>
+      <div>
+        <h3>Logged Exercises</h3>
+        <table className="table">
+          <thead className="thead-light">
+            <tr>
+              <th>Username</th>
+              <th>Description</th>
+              <th>Duration</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <Exercise />
+          </tbody>
+        </table>
+      </div>
+    </AppContext.Provider>
   )
 };
 
