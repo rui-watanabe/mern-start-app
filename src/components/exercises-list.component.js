@@ -16,9 +16,10 @@ const ExercisesList = () => {
       .catch(err => console.log(err)); 
   },[]);
 
-  // useEffect(() => {
-  //    console.log("exercises data reload");
-  // },[exercises]);
+  useEffect(() => {
+    setExercises(exercises);
+    console.log("reload")
+  },[exercises]);
 
   return(
     <AppContext.Provider value={exercises}>
